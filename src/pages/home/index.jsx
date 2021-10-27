@@ -58,9 +58,9 @@ export default function Home() {
       setFilteredTask(
         ft.filter(
           (task) =>
-            task.title.includes(e.target.value) ||
-            task.content.includes(e.target.value) ||
-            task.timeCrated.includes(e.target.value)
+            task.title.toLowerCase().includes(e.target.value.toLowerCase()) ||
+            task.content.toLowerCase().includes(e.target.value.toLowerCase()) ||
+            task.timeCrated.toLowerCase().includes(e.target.value.toLowerCase())
         )
       );
     } else {

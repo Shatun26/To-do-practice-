@@ -104,11 +104,10 @@ const homeSlice = createSlice({
       state.tasks = state.tasks.reverse();
     },
     changeTaskStatus: (state, { payload }) => {
-      state.tasks = state.tasks.map((elem) => {
+      state.tasks.forEach((elem) => {
         if (elem.id === payload) {
           elem.status = !elem.status;
         }
-        return elem;
       });
     },
   },
@@ -117,8 +116,13 @@ const homeSlice = createSlice({
 // меняются только названия переменных
 const homeReducer = homeSlice.reducer;
 // экспорт экшенов в компоненты
-export const { changeTheme, addTask, deleteTask, reversTasks,changeTaskStatus } =
-  homeSlice.actions;
+export const {
+  changeTheme,
+  addTask,
+  deleteTask,
+  reversTasks,
+  changeTaskStatus,
+} = homeSlice.actions;
 // из слайса мы забираем редьюсер чтобы его экспортировать в стор
 
 export default homeReducer;
